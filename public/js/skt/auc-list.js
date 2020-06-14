@@ -3,11 +3,35 @@ function executeSetInterval(func, delay){
   setInterval(func,delay);
 }
 
+var sound_status = 1; //Sound ON
+var audio = "<audio autoplay loop class=\"audio\" src='/bifrost_alarm.mp3'></audio>";
+
+function changeStatus(){
+	
+	if(sound_status == 1){ //Sound ON이면
+		sound_status = 0; //OFF으로
+		document.getElementById('speaker').src='/mute.png'; //mute 이미지로 바꾸기
+		
+		$(".aucList-container").find(".audio").remove(); //알람 소리 제거
+	}
+	
+	else{ //Sound OFF면
+		sound_status = 1; //ON으로
+		document.getElementById('speaker').src='/speaker2.png';
+		
+		if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+		{
+			$(".aucList-container").append(audio);
+		}
+	}
+	
+	console.log(sound_status);
+}
+
 
 function play_audio(){
-	var audio = "<audio autoplay class=\"audio\" src='/30s.mp3'></audio>";
 	
-	if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+	if(document.getElementsByClassName("alarm-twinkle").length > 0 && sound_status==1) 
 	{
 		$(".aucList-container").append(audio);
 	}

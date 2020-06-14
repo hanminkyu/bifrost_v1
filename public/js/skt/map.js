@@ -24,7 +24,30 @@ function getPrevDateTime(){
 	return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
 }
 
-var sound_status = 1; //ON
+var sound_status = 1; //Sound ON
+var audio = "<audio autoplay loop class=\"audio\" src='/bifrost_alarm.mp3'></audio>";
+
+function changeStatus(){
+	
+	if(sound_status == 1){ //Sound ON이면
+		sound_status = 0; //OFF으로
+		document.getElementById('speaker').src='/mute.png'; //mute 이미지로 바꾸기
+		
+		$("#skt-map-cont-2").find(".audio").remove(); //알람 소리 제거
+	}
+	
+	else{ //Sound OFF면
+		sound_status = 1; //ON으로
+		document.getElementById('speaker').src='/speaker2.png';
+		
+		if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+		{
+			$("#skt-map-cont-2").append(audio);
+		}
+	}
+	
+	console.log(sound_status);
+}
 
 /** draw variable is used to plot charts -JJ- */
 var draw = {
@@ -375,7 +398,7 @@ function ajaxUpdateAlarm(url){
     $(".sys-container").removeClass("alarm-twinkle");
 
 	$("#skt-map-cont-2").find(".audio").remove(); //sj
-	var sound_status = 'on';
+	
     
     eventTime.forEach(function(e,index){
     	var timeAddHtml = "<p class='skt-alarm-txt'>"+eventTime[index]+"</p>";
@@ -416,11 +439,8 @@ function ajaxUpdateAlarm(url){
 	$("#skt-map-center-"+site).addClass(statusClass);
 	$("#skt-map-center-"+site).find(".skt-map-status-btn").text(statusText);
 	
-	
 	//sj
-	var audio = "<audio autoplay class=\"audio\" src='/bifrost_alarm.mp3'></audio>";
-	
-	if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+	if(document.getElementsByClassName("alarm-twinkle").length > 0 && sound_status==1) 
 	{
 		$("#skt-map-cont-2").append(audio);
 	}
