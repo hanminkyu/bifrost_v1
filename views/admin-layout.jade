@@ -1,0 +1,209 @@
+doctype html
+html.no-js(lang='ko')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title= title
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=0.75')
+    // favicon
+    // ============================================
+    link(rel='shortcut icon', type='image/x-icon', href='/img/favicon.ico')
+    // Bootstrap CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    // Bootstrap CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    // owl.carousel CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/owl.carousel.css')
+    link(rel='stylesheet', href='/css/owl.theme.css')
+    link(rel='stylesheet', href='/css/owl.transitions.css')
+    // meanmenu CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/meanmenu/meanmenu.min.css')
+    // animate CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/animate.css')
+    // normalize CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/normalize.css')
+    // mCustomScrollbar CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/scrollbar/jquery.mCustomScrollbar.min.css')
+    // jvectormap CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/jvectormap/jquery-jvectormap-2.0.3.css')
+    // notika icon CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/notika-custom-icon.css')
+    // wave CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/wave/waves.min.css')
+    // main CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/main.css')
+    // style CSS
+    // ============================================
+    //link(rel='stylesheet', href='/css/style.css')
+    // responsive CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/responsive.css')
+    // jquery UI CSS
+    // ============================================
+    link(rel='sytlesheet', href='/css/jquery-ui.min.css')
+    // bootstrap toggle CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/bootstrap-toggle.min.css')
+    // icheck CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/icheck/polaris.css')
+    // icheck CSS
+    // ============================================
+    link(rel='stylesheet', href='/css/adminstyle.css')
+    //link(rel='stylesheet', href='/css/notification/jquery.notify.css')
+    // modernizr JS
+    // ============================================
+    //script(src='/js/vendor/modernizr-2.8.3.min.js')
+    body
+      | <!--[if lt IE 8]>
+      |       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please upgrade your browser. </p>
+      |   <![endif]-->
+      // Start Header Top Area
+      .header-top-area
+        .container
+          .row
+            .col-lg-4.col-md-4.col-sm-12.col-xs-12
+              .logo-area
+                a(href='#')
+                  img(src='/img/logo/logo.png', alt='')
+                span#currentTimeSpan
+                
+            
+
+
+      // End Header Top Area
+      block content
+
+      // End Footer area
+      // jquery 
+      // ============================================
+      script(src='/js/vendor/jquery-1.12.4.min.js')
+      // jquery UI
+      // ============================================
+      //script(src='/js/jquery-ui.min.js')
+      // bootstrap JS
+      // ============================================
+      script(src='/js/bootstrap.min.js')
+      // wow JS
+      // ============================================
+      script(src='/js/wow.min.js')
+      // price-slider JS
+      // ============================================
+      // commented as an error occurs using jquery ui
+      script(src='/js/jquery-price-slider.js')
+      // owl.carousel JS
+      // ============================================
+      script(src='/js/owl.carousel.min.js')
+      // scrollUp JS
+      // ============================================
+      script(src='/js/jquery.scrollUp.min.js')
+      // meanmenu JS
+      // ============================================
+      script(src='/js/meanmenu/jquery.meanmenu.js')
+      // counterup JS
+      // ============================================
+      script(src='/js/counterup/jquery.counterup.min.js')
+      script(src='/js/counterup/waypoints.min.js')
+      script(src='/js/counterup/counterup-active.js')
+      // mCustomScrollbar JS
+      // ============================================
+      script(src='/js/scrollbar/jquery.mCustomScrollbar.concat.min.js')
+      // sparkline JS
+      // ============================================
+      script(src='/js/sparkline/jquery.sparkline.min.js')
+      script(src='/js/sparkline/sparkline-active.js')
+      // sparkline JS
+      // ============================================
+      script(src='/js/flot/jquery.flot.js')
+      script(src='/js/flot/jquery.flot.resize.js')
+      script(src='/js/flot/curvedLines.js')
+      script(src='/js/flot/flot-active.js')
+      // knob JS
+      // ============================================
+      script(src='/js/knob/jquery.knob.js')
+      script(src='/js/knob/jquery.appear.js')
+      script(src='/js/knob/knob-active.js')
+      // wave JS
+      // ============================================
+      script(src='/js/wave/waves.min.js')
+      script(src='/js/wave/wave-active.js')
+      // animation JS
+      // ============================================
+      script(src='/js/animation/animation-active.js')
+      // todo JS
+      // ============================================
+      //script(src='/js/todo/jquery.todo.js')
+      // plugins JS
+      // ============================================
+      //script(src='/js/plugins.js')
+      // Chat JS
+      // ============================================
+      //script(src='/js/chat/moment.min.js')
+      //script(src='/js/chat/jquery.chat.js')
+      // main JS
+      // ============================================
+      //script(src='/js/main.js')
+      // bootstrap toggle JS
+      // ============================================
+      //script(src='/js/bootstrap-toggle.min.js')
+      
+      
+      // dashboard JS added (2019.05.11)
+      // ============================================
+      //script(src='/js/skt/dashboard.js')
+      
+      // layout JS added (2019.06.06) => TODO : need to refactor js files
+      // ============================================  
+      //script(src='/js/skt/layout-init.js')
+
+      // Additional javascripts block added (2019.05.16)
+      // ============================================
+      
+      //For Datatables
+      script(src="css/datatables/datatables.min.js")
+      link(rel="stylesheet", href="css/datatables/datatables.min.css")
+      script(src="css/datatables/Select-1.3.0/js/dataTables.select.min.js")
+      script(src="css/datatables/Select-1.3.0/js/select.bootstrap.js")
+      link(rel="stylesheet", href="css/datatables/Select-1.3.0/css/select.bootstrap.min.css")
+      link(rel="stylesheet", href="css/datatables/Select-1.3.0/css/select.dataTables.min.css")
+      link(rel="stylesheet", href="css/datatables/Buttons-1.5.6/css/buttons.bootstrap.min.css")
+      script(src="css/datatables/Buttons-1.5.6/js/buttons.bootstrap.min.js")
+      
+
+      //For Buttons Extensions(datatables).
+      //script(src="css/datatables/jQuery-3.3.1/jquery-3.3.1.min.js")
+      script(src="css/datatables/DataTables-1.10.18/js/jquery.dataTables.min.js")
+      script(src="css/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js")
+      script(src="css/datatables/Buttons-1.5.6/js/buttons.flash.min.js")
+      script(src="css/datatables/Buttons-1.5.6/js/buttons.html5.min.js")
+      script(src="css/datatables/Buttons-1.5.6/js/buttons.print.min.js")
+      script(src="css/datatables/JSZip-2.5.0/jszip.min.js")
+      //script(src="css/datatables/JSZip-2.5.0/pdfmake-0.1.36/pdfmake.min.js")
+      //script(src="css/datatables/JSZip-2.5.0/pdfmake-0.1.36/vfs_fonts.js")
+      link(rel="stylesheet", href="css/datatables/DataTables-1.10.18/css/jquery.dataTables.min.css")
+      link(rel="stylesheet", href="css/datatables/Buttons-1.5.6/css/buttons.dataTables.min.css")
+
+      // select2
+      script(src="js/select2/select2.min.js")
+      link(rel="stylesheet", href="css/select2/select2.min.css")
+      
+
+      // bootstrap growl JS
+      // ============================================
+      //script(src='/js/notification/bootstrap-growl.min.js')
+      //script(src='/js/notification/jquery.growl.js')
+      script(src='/js/notification/bootstrap-notify.min.js')
+
+      block javascripts

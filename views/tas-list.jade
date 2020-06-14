@@ -1,0 +1,56 @@
+extends layout
+
+block content
+   input(type="hidden", val="tas")#inputCurrentSystem
+   .tasList-container
+     .col-sm-3.skt-panel.tas-panel#azone
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl A Zone
+         span#curATAScnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totATAScnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curATASSub
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totATASSub
+         span.sys-txt-delimiter 만
+         p.sys-txt-delimiter 
+
+            
+     .col-sm-3.skt-panel.tas-panel#bzone
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl B Zone
+         span#curBTAScnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBTAScnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curBTASSub
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBTASSub
+         span.sys-txt-delimiter 만
+         p.sys-txt-delimiter 
+         
+     .col-sm-3.skt-panel.tas-panel#bkzone
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl BK Zone
+         span#curBKTAScnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBKTAScnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curBKTASSub
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBKTASSub
+         span.sys-txt-delimiter 만
+         p.sys-txt-delimiter 
+
+  
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/tas-list.js")
+
+       
+    

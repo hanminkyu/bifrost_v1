@@ -1,0 +1,34 @@
+extends layout
+
+block content
+   input(type="hidden", val="pgw")#inputCurrentSystem
+   .container
+     p #{system}
+     .skt-panel
+        -for(var i=0; i<25; i++)
+          if i%5==0
+            .col-md-offset-1.col-md-2.sys-detail-container
+              .sys-detail-box.align-middle
+                #system-name.sys-detail-ttl
+                p.sys-detail-delimiter 
+                span#curSysSesContainer
+                span.sys-detail-delimiter &nbsp/&nbsp
+                span#totSysSesContainer 
+          
+          else
+            .col-md-2.sys-detail-container
+              .sys-detail-box.align-middle
+                #system-name.sys-detail-ttl
+                p.sys-detail-delimiter 
+                span#curSysSesContainer
+                span.sys-detail-delimiter &nbsp/&nbsp
+                span#totSysSesContainer
+           
+       
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/system-detail.js")
+
+       
+    

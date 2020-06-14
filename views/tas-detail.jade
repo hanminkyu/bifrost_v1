@@ -1,0 +1,52 @@
+extends layout
+
+block content
+   input(type="hidden", val='#{system}')#inputCurrentSystem
+   .tas-container
+     .col-sm-12.tas-detail-panel
+       .col-md-offset-4.col-md-2.tas-detail-header
+         .tas-detail-ttl #{system}
+         span#locationContainer
+       .col-md-1.tas-detail-header
+         canvas.tas-chart
+         span#curTASSubContainer
+         span.tas-txt-delimiter &nbsp/&nbsp
+         span#totTASSubContainer
+         span.tas-txt-delimiter 만
+
+       .col-sm-offset-3.col-sm-1.tas-rm
+         img(src='/img/title/system_solution.png', alt='', width="80" height="80").a(onclick='location.href="/tas-rm"') 
+         .tas-txt-delimiter 극단적RM 
+     
+     .col-sm-12.tas-detail-panel    
+       .col-sm-5.skt-panel.tas-detail-panel.stat-panel
+         .col-sm-12
+           img(src='/img/title/system_stat.png', alt='', width="40" height="40")
+           span.tas-detail-txt 통계
+         .col-sm-10.tas-stat-panel
+           #REGIstat.tas-stat-txt REGI 성공률 
+         .col-sm-10.tas-stat-panel
+           #OISstat.tas-stat-txt 발신 INVITE 성공률 
+         .col-sm-10.tas-stat-panel
+           #TISstat.tas-stat-txt 착신 INVITE 성공률 
+
+       .col-sm-5.skt-panel.tas-detail-panel.alarm-panel
+         .col-sm-12
+           img(src='/img/title/system_alarm.png', alt='', width="40" height="40")
+           span.tas-detail-txt 알람           
+         .col-sm-10.tas-stat-panel#A1251
+           .tas-stat-txt 프로세스 CPU 사용률 증가
+         .col-sm-10.tas-stat-panel#A34013
+           .tas-stat-txt 호처리 프로세스(MSIPX) 연동 단절
+         .col-sm-10.tas-stat-panel#A5401
+           .tas-stat-txt MMDX 비정상 동작 
+
+   
+   
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/tas-detail.js")
+  script(src="/js/charts/Chart.js")
+  script(src="/js/utils.js")    
+  

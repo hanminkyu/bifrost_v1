@@ -1,0 +1,49 @@
+extends layout
+
+block content
+   input(type="hidden", val="pgw")#inputCurrentSystem
+   .pgwList-container
+     .col-sm-6.skt-panel.data-pgw-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl Data PGW
+         span#curDatapgwcnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totDatapgwcnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curDatapgwSess
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totDatapgwSess
+         span.sys-txt-delimiter 만
+         p.sys-txt-delimiter 
+         span#curDatapgwBps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totDatapgwBps
+         span.sys-txt-delimiter Gbps
+         
+            
+     .col-sm-4.skt-panel.hdv-pgw-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl HDV PGW
+         span#curHdvpgwcnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totHdvpgwcnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curHdvpgwSess
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totHdvpgwSess
+         span.sys-txt-delimiter 만
+         p.sys-txt-delimiter 
+         span#curHdvpgwBps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totHdvpgwBps
+         span.sys-txt-delimiter Gbps
+  
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/pgw-list.js")
+
+       
+    

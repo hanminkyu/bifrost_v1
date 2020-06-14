@@ -1,0 +1,43 @@
+extends layout
+
+block content
+   input(type="hidden", val="hlr")#inputCurrentSystem
+   .HlrList-container
+     .col-sm-5.skt-panel.active-Hlr-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl Active
+         span#curActHlrCnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totActHlrCnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curActHlrTps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totActHlrTps
+         span.sys-txt-delimiter Tps
+         
+            
+               
+     .col-sm-5.skt-panel.bkup-Hlr-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl BKUP
+         span#curBKHlrCnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBKHlrCnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curBKHlrTps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBKHlrTps
+         span.sys-txt-delimiter Tps
+         
+   
+   
+       
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/hlr-list.js")
+
+       
+    

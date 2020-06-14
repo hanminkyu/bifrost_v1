@@ -1,0 +1,185 @@
+extends admin-layout
+
+block content
+
+  .container-fluid
+    .well.well-sm      
+      button#b-mme.btn.btn-default(type='button') MME
+      button#b-sgw.btn.btn-default(type='button') SGW
+      button#b-pgw.btn.btn-default(type='button') PGW
+      button#b-mss.btn.btn-default(type='button') MSS
+      button#b-tas.btn.btn-default(type='button') TAS
+      button#b-hss.btn.btn-default(type='button') HSS
+      button#b-EditTH.btn.btn-default(type='button') Threshold 변경
+     
+  // Start DB input lines
+  .container-fluid#view-admin-tables  
+    #dev-table    
+      .well.well-sm    
+        table#dev-datatables(style='width:100%')
+          thead
+            tr
+              th 시스템명
+              th 시스템TYPE
+              th 국사명(SITE)
+              th 층(FLOOR)
+              th 상면
+              th 용량(SESSION)
+              th 용량(BPS)
+              th 최종 수정일(LAST_UPDATE)
+          tbody
+          
+    #threshold-table    
+      .well.well-sm    
+        table#threshold-datatables(style='width:100%')
+          thead
+            tr
+              th SYSTEM
+              th Threshold_0
+              th Threshold_1
+              th Threshold_2
+              th Threshold_3
+              th Threshold_4
+              th Threshold_5
+              th Threshold_6
+              th Threshold_7
+          tbody
+          
+  #DeleteModal-dev.modal.fade(role='dialog', tabindex='-1', aria-labelledby='ModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5.modal-title#exampleModalLabel 정말로 삭제하시겠습니까?
+          button.close(type='button', data-dismiss='modal').close &times
+        .modal-body
+          p.modal-sub-title '삭제'버튼을 누르면 해당 시스템이 삭제됩니다.정말로 삭제하시겠습니까?
+        .modal-footer
+          button#delete-btn.btn.btn-primary(type='button', data-dismiss='modal') 삭제
+          button.btn.btn-secondary(type='button', data-dismiss='modal') 닫기
+
+  #AddEditModal-dev.modal.fade(role="dialog", style="display:none;")
+    .modal-dialog.modals-default
+      .modal-content
+        .modal-header
+          button(type="button", data-dismiss="modal").close &times
+        .modal-body
+          h1.modal-title 장비 추가 및 수정
+          p.modal-sub-title 
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-5.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 시스템명
+              .col-lg-5.col-md-6.col-sm-6.col-xs-12.skt-modal-type-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 시스템 TYPE
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-5.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                input#db_system_name.form-control(type='text', placeholder='시스템명을 입력하세요.', name='db_system_name')
+              .col-lg-5.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                //input#db_subclass.form-control(type='text', placeholder='시스템Type을 입력하세요.', name='db_system_type')
+                select#db_system_type.form-control(width='100%')
+                  option(value='', disabled='', selected='', hidden='hidden') TYPE 선택해주세요
+                  option(value='D', selected='') DATA
+                  option(value='vD') 가상화 DATA
+                  option(value='H') HDV
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-location-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 국사
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 층
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 상면
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                input#db_location.form-control(type='text', placeholder='국사를 입력하세요.', name='db_location')
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_building.form-control(type='text', placeholder='층을 입력하세요.', name='db_building')
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_floor_plan.form-control(type='text', placeholder='상면을 입력하세요.', name='db_floor_plan')
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-location-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 용량(Session)
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 용량(BPS)
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                input#db_max_sess.form-control(type='text', placeholder='MAX Session을 입력하세요', name='db_max_sess')
+              .col-lg-4.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_max_bps.form-control(type='text', placeholder='MAX BPS를 입력하세요.', name='db_max_bps')
+                
+        .modal-footer 
+          button.btn.btn-default#addeditbtn(type='button', data-dismiss='modal') 확인
+          button.btn.btn-default(type='button', data-dismiss='modal') 취소
+
+
+  #AddEditModal-threshold.modal.fade(role="dialog", style="display:none;")
+    .modal-dialog.modals-default
+      .modal-content
+        .modal-header
+          button(type="button", data-dismiss="modal").close &times
+        .modal-body
+          h1.modal-title Threshold 수정
+          p.modal-sub-title 
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-5.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd 시스템
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-5.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                input#db_system.form-control(type='text', placeholder='시스템을 입력하세요.', name='db_system')
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-location-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_0
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_1
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_2
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_3
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                input#db_th0.form-control(type='text', placeholder='Threshold_0', name='db_th0')
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_th1.form-control(type='text', placeholder='Threshold_1', name='db_th1')
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_th2.form-control(type='text', placeholder='Threshold_2', name='db_th2')
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_th3.form-control(type='text', placeholder='Threshold_3', name='db_th3')
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-location-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_4
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_5
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_6
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container
+                p.skt-smr-modal-txt.skt-smr-modal-tbl-hd TH_7
+          .row
+            .skt-smr-modal-tbl
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-name-container
+                input#db_th4.form-control(type='text', placeholder='Threshold_4', name='db_th4')
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_th5.form-control(type='text', placeholder='Threshold_5', name='db_th5')
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_th6.form-control(type='text', placeholder='Threshold_6', name='db_th6')
+              .col-lg-3.col-md-6.col-sm-6.col-xs-12.skt-modal-button-container  
+                input#db_th7.form-control(type='text', placeholder='Threshold_7', name='db_th7')
+                
+        .modal-footer 
+          button.btn.btn-default#addeditbtn(type='button', data-dismiss='modal') 확인
+          button.btn.btn-default(type='button', data-dismiss='modal') 취소
+          
+block javascripts
+  script(src="js/skt/admin.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+
+
+

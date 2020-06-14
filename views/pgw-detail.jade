@@ -1,0 +1,43 @@
+extends layout
+
+block content
+   input(type="hidden", val='#{system}')#inputCurrentSystem
+   .pgw-container
+     .col-sm-12.pgw-detail-panel
+       .col-md-offset-4.col-md-2.pgw-detail-header
+         .pgw-detail-ttl #{system}
+         span#locationContainer
+       .col-md-1.pgw-detail-header
+         canvas.pgw-chart
+         span#curPGWSesContainer
+         span.pgw-txt-delimiter &nbsp/&nbsp
+         span#totPGWSesContainer
+         span.pgw-txt-delimiter 만
+         span#curPGWBpsContainer
+         span.pgw-txt-delimiter &nbsp/&nbsp
+         span#totPGWBpsContainer
+         span.pgw-txt-delimiter Gbps
+       .col-sm-offset-3.col-sm-1.pgw-rm
+         img(src='/img/title/system_solution.png', alt='', width="80" height="80").a(onclick='location.href="/pgw-rm"') 
+         .pgw-txt-delimiter 극단적RM 
+     
+     .col-sm-12.pgw-detail-panel    
+       .col-sm-5.skt-panel.pgw-detail-panel.stat-panel
+         .col-sm-12
+           img(src='/img/title/system_stat.png', alt='', width="40" height="40")
+           span.pgw-detail-txt 통계
+
+       .col-sm-5.skt-panel.pgw-detail-panel.alarm-panel
+         .col-sm-12
+           img(src='/img/title/system_alarm.png', alt='', width="40" height="40")
+           span.pgw-detail-txt 알람           
+
+   
+   
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/pgw-detail.js")
+  script(src="/js/charts/Chart.js")
+  script(src="/js/utils.js")    
+  

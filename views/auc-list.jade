@@ -1,0 +1,58 @@
+extends layout
+
+block content
+   input(type="hidden", val="hss")#inputCurrentSystem
+   .aucList-container
+     .col-sm-3.skt-panel.auc21-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl AuC#21
+         span#curAuC21Cnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totAuC21Cnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curAuC21Tps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totAuC21Tps
+         span.sys-txt-delimiter Tps
+         
+           
+            
+     .col-sm-3.skt-panel.auc22-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl AuC#22
+         span#curAuC22Cnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totAuC22Cnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curAuC22Tps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totAuC22Tps
+         span.sys-txt-delimiter Tps
+         
+      
+   
+     .col-sm-3.skt-panel.auc25-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl AuC#25(BKUP)
+         span#curAuC25Cnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totAuC25Cnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curAuC25Tps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totAuC25Tps
+         span.sys-txt-delimiter Tps
+         
+         
+
+
+          
+       
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/auc-list.js")
+  

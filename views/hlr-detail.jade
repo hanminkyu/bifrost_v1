@@ -1,0 +1,39 @@
+extends layout
+
+block content
+   input(type="hidden", val='#{system}')#inputCurrentSystem
+   .hlr-container
+     .col-sm-12.hlr-detail-panel
+       .col-md-offset-4.col-md-2.hlr-detail-header
+         .hlr-detail-ttl #{system}
+         span#locationContainer
+       .col-md-1.hlr-detail-header
+         canvas.hlr-chart
+         span#curHLRTpsContainer
+         span.hlr-txt-delimiter &nbsp/&nbsp
+         span#totHLRTpsContainer
+         span.hlr-txt-delimiter Tps
+       .col-sm-offset-3.col-sm-1.hlr-rm
+         img(src='/img/title/system_solution.png', alt='', width="80" height="80").a(onclick='location.href="/hlr-rm"') 
+         .hlr-txt-delimiter 극단적RM 
+     
+     .col-sm-12.hlr-detail-panel    
+       .col-sm-5.skt-panel.hlr-detail-panel.stat-panel
+         .col-sm-12
+           img(src='/img/title/system_stat.png', alt='', width="40" height="40")
+           span.hlr-detail-txt 통계 
+           
+       .col-sm-5.skt-panel.hlr-detail-panel.alarm-panel
+         .col-sm-12
+           img(src='/img/title/system_alarm.png', alt='', width="40" height="40")
+           span.hlr-detail-txt 알람 
+
+   
+   
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/hlr-detail.js")
+  script(src="/js/charts/Chart.js")
+  script(src="/js/utils.js")    
+  

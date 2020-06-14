@@ -1,0 +1,57 @@
+extends layout
+
+block content
+   input(type="hidden", val="hss")#inputCurrentSystem
+   .hssList-container
+     .col-sm-3.skt-panel.active-hss-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl Active
+         span#curActhssCnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totActhssCnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curActHssTps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totActHssTps
+         span.sys-txt-delimiter Tps
+         
+            
+     .col-sm-3.skt-panel.standby-hss-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl Standby
+         span#curStbyhssCnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totStbyhssCnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curStbyHssTps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totStbyHssTps
+         span.sys-txt-delimiter Tps
+         
+      
+     .col-sm-3.skt-panel.bkup-hss-panel
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl BKUP
+         span#curBKhssCnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBKhssCnt
+         span.sys-txt-delimiter 식
+         p.sys-txt-delimiter 
+         span#curBKHssTps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBKHssTps
+         span.sys-txt-delimiter Tps
+         
+     
+
+          
+       
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/hss-list.js")
+
+       
+    
