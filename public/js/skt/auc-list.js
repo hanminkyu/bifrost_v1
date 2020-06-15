@@ -25,7 +25,6 @@ function changeStatus(){
 		}
 	}
 	
-	console.log(sound_status);
 }
 
 
@@ -78,8 +77,8 @@ function ajaxShowSystemDetail(url){
 	var curAuC25Tps = Math.round(json.result[4].curAuC25Tps);
 	var totAuC25Tps = Math.round(json.result[4].totAuC25Tps);
 	
-	var audio = new Audio('/bifrost_alarm.mp3');
-	audio.currentTime = 0;
+	//var audio = new Audio('/bifrost_alarm.mp3');
+	//audio.currentTime = 0;
 	
     $(".aucList-container").find(".sys-detail-value").remove();   
     $(".aucList-container").find(".col-sm-6").remove();   

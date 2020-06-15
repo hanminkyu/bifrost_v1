@@ -24,6 +24,40 @@ function getPrevDateTime(){
 	return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
 }
 
+function changeStatus(){
+	
+	if(sound_status == 1){ //Sound ON이면
+		sound_status = 0; //OFF으로
+		document.getElementById('speaker').src='/mute.png'; //mute 이미지로 바꾸기
+		
+		$(".hss-container").find(".audio").remove(); //알람 소리 제거
+	}
+	
+	else{ //Sound OFF면
+		sound_status = 1; //ON으로
+		document.getElementById('speaker').src='/speaker2.png';
+		
+		if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+		{
+			$(".hss-container").append(audio);
+		}
+	}
+	
+}
+
+
+function play_audio(){
+	
+	if(document.getElementsByClassName("alarm-twinkle").length > 0 && sound_status==1) 
+	{
+		$(".hss-container").append(audio);
+	}
+} 
+
+function pause_audio(){
+	$(".hss-container").find(".audio").remove();
+}
+
 
 function executeSetInterval(func, delay){
   func();
@@ -141,7 +175,9 @@ function ajaxShowHssDetail(url){
 
 	$(".hss-container").find(".sys-txt-value").remove(); 
 	$(".hss-stat-panel").removeClass("alarm-twinkle");
-
+	
+	pause_audio();
+	
 	//fallback(0)
 	system_namef0.forEach(function(e,index) {
 		if(system_namef0[index]==sys_num){
@@ -322,6 +358,9 @@ function ajaxShowHssDetail(url){
 			}
 		}
 	});
+	
+	play_audio();
+	
   });
  }
 

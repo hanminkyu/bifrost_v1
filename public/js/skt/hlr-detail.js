@@ -57,6 +57,40 @@ function drawPieChart(data1, data2, elementId){
 	new Chart($("."+elementId), config);
 }
 
+function changeStatus(){
+	
+	if(sound_status == 1){ //Sound ON이면
+		sound_status = 0; //OFF으로
+		document.getElementById('speaker').src='/mute.png'; //mute 이미지로 바꾸기
+		
+		$(".hlr-container").find(".audio").remove(); //알람 소리 제거
+	}
+	
+	else{ //Sound OFF면
+		sound_status = 1; //ON으로
+		document.getElementById('speaker').src='/speaker2.png';
+		
+		if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+		{
+			$(".hlr-container").append(audio);
+		}
+	}
+	
+}
+
+
+function play_audio(){
+	
+	if(document.getElementsByClassName("alarm-twinkle").length > 0 && sound_status==1) 
+	{
+		$(".hlr-container").append(audio);
+	}
+} 
+
+function pause_audio(){
+	$(".hlr-container").find(".audio").remove();
+}
+
 /** 2020.03.10 Ajax Function Updates System detail status -MK- */
 function ajaxShowHlrDetail(url){
   $.ajax({
@@ -114,6 +148,8 @@ function ajaxShowHlrDetail(url){
 
 	$(".hlr-container").find(".sys-txt-value").remove(); 
 	$(".hlr-stat-panel").removeClass("alarm-twinkle");
+	
+	pause_audio();
 
 	//fallback(0)
 	system_namef0.forEach(function(e,index) {
@@ -207,6 +243,9 @@ function ajaxShowHlrDetail(url){
 			}
 		}
 	});
+	
+	play_audio();
+	
   });
  }
 

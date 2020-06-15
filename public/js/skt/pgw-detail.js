@@ -24,6 +24,44 @@ function getPrevDateTime(){
 	return (year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
 }
 
+var sound_status = 1; //Sound ON
+var audio = "<audio autoplay loop class=\"audio\" src='/bifrost_alarm.mp3'></audio>";
+
+function changeStatus(){
+	
+	if(sound_status == 1){ //Sound ON이면
+		sound_status = 0; //OFF으로
+		document.getElementById('speaker').src='/mute.png'; //mute 이미지로 바꾸기
+		
+		$(".pgw-container").find(".audio").remove(); //알람 소리 제거
+	}
+	
+	else{ //Sound OFF면
+		sound_status = 1; //ON으로
+		document.getElementById('speaker').src='/speaker2.png';
+		
+		if(document.getElementsByClassName("alarm-twinkle").length > 0) 
+		{
+			$(".pgw-container").append(audio);
+		}
+	}
+	
+}
+
+
+function play_audio(){
+	
+	if(document.getElementsByClassName("alarm-twinkle").length > 0 && sound_status==1) 
+	{
+		$(".pgw-container").append(audio);
+	}
+} 
+
+function pause_audio(){
+	$(".pgw-container").find(".audio").remove();
+}
+
+
 function executeSetInterval(func, delay){
   func();
   setInterval(func,delay);
@@ -146,6 +184,8 @@ function ajaxShowPgwDetail(url){
     });
     
 	$(".pgw-container").find(".sys-txt-value").remove(); 
+	
+	pause_audio();
 	
 
 	//fallback(0)
@@ -354,6 +394,9 @@ function ajaxShowPgwDetail(url){
 			}
 		}
 	});
+	
+	play_audio();
+	
   });
  }
 
