@@ -1,0 +1,53 @@
+extends layout
+
+block content
+   input(type="hidden", val='#{system}')#inputCurrentSystem
+   .ims-container
+     .col-sm-12.ims-detail-panel
+       .col-md-offset-4.col-md-2.ims-detail-header
+         .ims-detail-ttl #{system}
+         span#locationContainer
+       .col-md-1.ims-detail-header
+         canvas.mecgw-chart
+         span#curimsSessContainer
+         span.ims-txt-delimiter &nbsp/&nbsp
+         span#totimsSessContainer
+         span.ims-txt-delimiter 만
+         br
+         span#curimsBpsContainer
+         span.ims-txt-delimiter &nbsp/&nbsp
+         span#totimsBpsContainer
+         span.ims-txt-delimiter TPS
+
+       .col-sm-offset-3.col-sm-1.ims-rm
+         img(src='/img/title/system_solution.png', alt='', width="80" height="80").a(onclick='location.href="/mecgw-rm"') 
+         .ims-txt-delimiter 극단적RM 
+     
+     .col-sm-12.ims-detail-panel    
+       .col-sm-5.skt-panel.ims-detail-panel.stat-panel
+         .col-sm-12
+           img(src='/img/title/system_stat.png', alt='', width="40" height="40")
+           span.ims-detail-txt 통계
+         .col-sm-10.ims-stat-panel
+           #CSRstat.ims-stat-txt CSR 성공율
+         .col-sm-10.ims-stat-panel
+           #MBRstat.ims-stat-txt MBR 완료율 
+         .col-sm-10.ims-stat-panel
+           #DNSstat.ims-stat-txt DNS 트래픽 비율
+
+       .col-sm-5.skt-panel.ims-detail-panel.alarm-panel
+         .col-sm-12
+           img(src='/img/title/system_alarm.png', alt='', width="40" height="40")
+           span.ims-detail-txt 알람           
+         .col-sm-10.ims-stat-panel#A4111
+           .ims-stat-txt Active Function Failed
+
+   
+   
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/mecgw-detail.js")
+  script(src="/js/charts/Chart.js")
+  script(src="/js/utils.js")    
+  
