@@ -1,0 +1,53 @@
+extends layout
+
+block content
+   input(type="hidden", val="mecgw")#inputCurrentSystem
+   .mecgwList-container
+     .col-sm-3.skt-panel.mecgw-panel#GJzone
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl 광주
+         span#curGJcnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totGJcnt
+         span.sys-txt-delimiter 식
+         br
+         span#curGJSess
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totGJSess
+         span.sys-txt-delimiter 만
+         br
+         span#curGJBps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totGJBps
+         span.sys-txt-delimiter BPS
+         br
+
+            
+     .col-sm-3.skt-panel.mecgw-panel#BSzone
+       .col-sm-12.border-system-detail
+         .sys-detail-ttl 부산
+         span#curBScnt
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBScnt
+         span.sys-txt-delimiter 식
+         br 
+         span#curBSSess
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBSSess
+         span.sys-txt-delimiter 만
+         br
+         span#curBSBps
+         span.sys-txt-delimiter &nbsp/&nbsp
+         span#totBSBps
+         span.sys-txt-delimiter BPS
+         br 
+         
+
+  
+block javascripts
+  script(src="/js/flot/jquery.flot.time.js")
+  script(src="/js/twinkle/jquery.twinkle-0.9.0.min.js")
+  script(src="/js/skt/mecgw-list.js")
+
+       
+    
